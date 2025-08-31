@@ -1,0 +1,145 @@
+# Training-specific configuration for TrOCR fine-tuning on Constance de Salm data
+
+# Inherit from base config
+base_config: "base_config.yaml"
+
+# Model configuration for training
+model:
+  name: "microsoft/trocr-base-handwritten"
+  freeze_encoder: false  # Set to true for faster training with less data
+  gradient_checkpointing: true  # Save memory during training
+  
+# Training hyperparameters optimized for historical handwriting
+training:
+  # Batch size - adjust based on GPU memory
+  batch_size: 4  # Smaller batch size for stability
+  gradient_accumulation_steps: 4  # Effective batch size = 4 * 4 = 16
+  
+  # Learning rates
+  learning_rate: 3e-5  # Lower learning rate for fine-tuning
+  encoder_learning_rate: 1e-5  # Even lower for encoder if not frozen
+  
+  # Training duration
+  num_epochs: 15
+  max_steps: -1  # Use epochs instead
+  
+  # Warmup and scheduling
+  warmup_steps: 500
+  warmup_ratio: 0.1
+  lr_scheduler_type: "cosine"
+  
+  # Regularization
+  weight_decay: 0.01
+  dropout_rate: 0.1
+  label_smoothing: 0.1
+  
+  # Early stopping
+  early_stopping_patience: 3
+  early_stopping_threshold: 0.001
+  
+  # Checkpointing
+  save_strategy: "steps"
+  save_steps: 500
+  save_total_limit: 5
+  
+  # Evaluation
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  eval_delay: 500
+  
+  # Logging
+  logging_first_step: true
+  logging_steps: 25
+  
+  # Optimization
+  max_grad_norm: 1.0
+  dataloader_drop_last: true
+
+# Data augmentation for better generalization
+data:
+  augmentation:
+    enabled: true
+    rotation_range: [-2, 2]  # Small rotation for historical documents
+    brightness_range: [0.8, 1.2]
+    contrast_range: [0.8, 1.2]
+    noise_factor: 0.02
+    blur_probability: 0.1
+    
+  # Text processing for historical data
+  text:
+    preserve_accents: true
+    normalize_quotes: false  # Keep historical punctuation
+    handle_abbreviations: true
+    
+# Loss function configuration
+loss:
+  type: "cross_entropy"
+  ignore_index: -100
+  reduction: "mean"
+
+# Evaluation metrics specific to HTR
+evaluation:
+  metrics:
+    - "cer"
+    - "wer" 
+    - "exact_match"
+    - "bleu"
+    - "edit_distance"
+  
+  # HTR-specific evaluation
+  case_sensitive: true
+  normalize_whitespace: true
+  
+# Model export configuration
+export:
+  format: ["pytorch", "onnx"]  # Export formats
+  optimize_for_inference: true
+  quantization: false  # Set to true for smaller models
+
+# Integration with existing pipeline
+integration:
+  # ALTO XML output compatibility
+  alto_output: true
+  line_level_prediction: true
+  confidence_scores: true
+  
+  # Comparison with Kraken models
+  benchmark_against_kraken: true
+  kraken_models_path: "../htr/modeles-rec/"
+
+# Experiment tracking
+experiment:
+  name: "trocr_cds_finetuning"
+  tags: ["trocr", "handwriting", "historical", "constance_de_salm"]
+  notes: "Fine-tuning TrOCR on Constance de Salm correspondence dataset"
+  
+  # Weights & Biases integration
+  wandb:
+    enabled: true
+    project: "constance-de-salm-htr"
+    entity: null  # Set your wandb username
+    
+# Hardware optimization
+hardware:
+  # GPU settings
+  device: "auto"
+  mixed_precision: "fp16"
+  compile_model: false  # PyTorch 2.0 compile (experimental)
+  
+  # Memory optimization
+  gradient_checkpointing: true
+  cpu_offload: false
+  pin_memory: true
+  
+  # Parallel processing
+  dataloader_num_workers: 2  # Adjust based on CPU cores
+  
+# Debugging and development
+debug:
+  fast_dev_run: false  # Set to true for quick testing
+  limit_train_batches: null  # Limit for debugging
+  limit_val_batches: null
+  overfit_batches: 0  # Set to small number for overfitting test
+  
+  # Profiling
+  profiler: null  # "simple", "advanced", or null

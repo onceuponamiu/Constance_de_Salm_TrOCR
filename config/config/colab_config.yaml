@@ -1,0 +1,134 @@
+# Configuration optimized for Google Colab training
+
+# Inherit from base config
+base_config: "base_config.yaml"
+
+# Model configuration for Colab
+model:
+  name: "microsoft/trocr-base-handwritten"
+  freeze_encoder: false
+  gradient_checkpointing: true  # Save memory on Colab
+  max_length: 384
+
+# Data paths for Colab (adjust these paths)
+data:
+  source_dirs:
+    - "/content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/verite-terrain/"
+    - "/content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/sample-images/"
+    - "/content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/predic-corrigees/"
+  
+  output_dir: "/content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/data/"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  
+  # Image preprocessing optimized for historical documents
+  image:
+    target_size: [384, 384]
+    normalize: true
+    augmentation: true
+  
+  # Text preprocessing for historical French
+  text:
+    max_length: 384
+    preserve_accents: true
+    normalize_quotes: false
+    handle_abbreviations: true
+
+# Training optimized for Colab GPU (Tesla T4 16GB)
+training:
+  # Memory-optimized batch settings
+  batch_size: 2                    # Small batch for 16GB GPU
+  gradient_accumulation_steps: 8   # Effective batch size = 2 * 8 = 16
+  
+  # Learning rates
+  learning_rate: 3e-5
+  encoder_learning_rate: 1e-5
+  
+  # Training duration
+  num_epochs: 10                   # Reduced for Colab session limits
+  max_steps: -1
+  
+  # Optimization
+  warmup_steps: 300
+  warmup_ratio: 0.1
+  lr_scheduler_type: "cosine"
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  
+  # Checkpointing (frequent saves for Colab)
+  save_strategy: "steps"
+  save_steps: 100                  # Save every 100 steps
+  save_total_limit: 3
+  eval_steps: 200
+  evaluation_strategy: "steps"
+  
+  # Logging
+  logging_steps: 20
+  logging_first_step: true
+  
+  # Early stopping
+  early_stopping_patience: 3
+  early_stopping_threshold: 0.001
+
+# Hardware configuration for Colab
+hardware:
+  device: "auto"
+  mixed_precision: "fp16"          # Essential for Colab GPU
+  compile_model: false
+  gradient_checkpointing: true
+  dataloader_num_workers: 2        # Limited for Colab
+  pin_memory: true
+
+# Paths for Colab
+paths:
+  models_dir: "/content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/models/"
+  outputs_dir: "/content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/"
+  logs_dir: "/content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/logs/"
+  cache_dir: "/content/cache/"
+
+# Evaluation metrics
+evaluation:
+  metrics:
+    - "cer"
+    - "wer"
+    - "exact_match"
+    - "edit_distance"
+  case_sensitive: true
+  normalize_whitespace: true
+
+# Experiment tracking (disabled by default for Colab)
+experiment:
+  name: "trocr_cds_colab"
+  tags: ["trocr", "handwriting", "historical", "colab"]
+  notes: "TrOCR fine-tuning on Google Colab for Constance de Salm dataset"
+  
+  wandb:
+    enabled: false               # Disable by default for simplicity
+    project: "constance-de-salm-htr-colab"
+    entity: null
+
+# Debug options for Colab
+debug:
+  fast_dev_run: false
+  limit_train_batches: null        # Set to small number for testing
+  limit_val_batches: null
+  overfit_batches: 0
+  profiler: null
+
+# Data augmentation for better generalization
+data:
+  augmentation:
+    enabled: true
+    rotation_range: [-2, 2]
+    brightness_range: [0.8, 1.2]
+    contrast_range: [0.8, 1.2]
+    noise_factor: 0.02
+    blur_probability: 0.1
+
+# Integration settings
+integration:
+  alto_output: true
+  line_level_prediction: true
+  confidence_scores: true
+  benchmark_against_kraken: false  # Disable for Colab simplicity

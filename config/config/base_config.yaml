@@ -1,0 +1,82 @@
+# Base configuration for TrOCR-HTR
+model:
+  # TrOCR model configuration
+  name: "microsoft/trocr-base-handwritten"  # Base model cho handwritten text
+  # Alternatives: "microsoft/trocr-large-handwritten", "microsoft/trocr-base-printed"
+  
+  # Model parameters
+  max_length: 384  # Maximum sequence length
+  vocab_size: null  # Will be set from tokenizer
+  
+data:
+  # Data paths (relative to project root)
+  source_dirs:
+    - "../htr/verite-terrain/"
+    - "../CdS02_Konv002-02/"
+    - "../CdS02_Konv002-03/"
+  
+  # Processed data paths
+  output_dir: "data/"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  
+  # Image preprocessing
+  image:
+    target_size: [384, 384]  # TrOCR input size
+    normalize: true
+    augmentation: true
+  
+  # Text preprocessing
+  text:
+    max_length: 384
+    remove_special_chars: false  # Keep historical spelling
+    lowercase: false  # Preserve original casing
+    
+# Training configuration
+training:
+  batch_size: 8
+  learning_rate: 5e-5
+  num_epochs: 10
+  warmup_steps: 500
+  weight_decay: 0.01
+  
+  # Optimization
+  optimizer: "adamw"
+  scheduler: "linear"
+  
+  # Checkpointing
+  save_strategy: "epoch"
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  
+  # Logging
+  logging_steps: 50
+  eval_steps: 500
+  
+# Evaluation configuration
+evaluation:
+  metrics:
+    - "cer"  # Character Error Rate
+    - "wer"  # Word Error Rate
+    - "bleu" # BLEU score
+    - "exact_match"
+  
+  # Output format
+  save_predictions: true
+  save_detailed_results: true
+
+# Hardware configuration
+hardware:
+  device: "auto"  # auto, cpu, cuda
+  mixed_precision: true  # Use fp16 for faster training
+  dataloader_num_workers: 4
+  pin_memory: true
+
+# Paths and directories
+paths:
+  models_dir: "models/"
+  outputs_dir: "outputs/"
+  logs_dir: "logs/"
+  cache_dir: "cache/"

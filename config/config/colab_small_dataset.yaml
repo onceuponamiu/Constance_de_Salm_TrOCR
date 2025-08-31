@@ -1,0 +1,92 @@
+base_config: base_config.yaml
+data:
+  augmentation:
+    blur_probability: 0.1
+    brightness_range:
+    - 0.8
+    - 1.2
+    contrast_range:
+    - 0.8
+    - 1.2
+    enabled: true
+    noise_factor: 0.02
+    rotation_range:
+    - -2
+    - 2
+  output_dir: /content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/data/
+  source_dirs:
+  - /content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/verite-terrain/
+  - /content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/sample-images/
+  - /content/drive/MyDrive/Constance_de_Salm_TrOCR/training-data/predic-corrigees/
+  test_split: 0.1
+  train_split: 0.8
+  val_split: 0.1
+debug:
+  fast_dev_run: false
+  limit_train_batches: null
+  limit_val_batches: null
+  overfit_batches: 0
+  profiler: null
+evaluation:
+  case_sensitive: true
+  metrics:
+  - cer
+  - wer
+  - exact_match
+  - edit_distance
+  normalize_whitespace: true
+experiment:
+  name: trocr_cds_colab
+  notes: TrOCR fine-tuning on Google Colab for Constance de Salm dataset
+  tags:
+  - trocr
+  - handwriting
+  - historical
+  - colab
+  wandb:
+    enabled: false
+    entity: null
+    project: constance-de-salm-htr-colab
+hardware:
+  compile_model: false
+  dataloader_num_workers: 2
+  device: auto
+  gradient_checkpointing: true
+  mixed_precision: fp16
+  pin_memory: true
+integration:
+  alto_output: true
+  benchmark_against_kraken: false
+  confidence_scores: true
+  line_level_prediction: true
+model:
+  freeze_encoder: false
+  gradient_checkpointing: true
+  max_length: 384
+  name: microsoft/trocr-base-handwritten
+paths:
+  cache_dir: /content/cache/
+  logs_dir: /content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/logs/
+  models_dir: /content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/models/
+  outputs_dir: /content/drive/MyDrive/Constance_de_Salm_TrOCR/outputs/
+training:
+  batch_size: 1
+  early_stopping_patience: 5
+  early_stopping_threshold: 0.001
+  encoder_learning_rate: 1e-5
+  eval_steps: 20
+  evaluation_strategy: steps
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-05
+  logging_first_step: true
+  logging_steps: 5
+  lr_scheduler_type: cosine
+  max_grad_norm: 1.0
+  max_steps: -1
+  num_epochs: 20
+  save_steps: 10
+  save_strategy: steps
+  save_total_limit: 3
+  warmup_ratio: 0.1
+  warmup_steps: 10
+  weight_decay: 0.01
