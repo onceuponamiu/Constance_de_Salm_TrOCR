@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="CdS-8451">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="en">Letter from Constance de Salm to M. Pritz (Dyck, November 1st 1822)</title>
+            <title xml:lang="fr">Lettre de Constance de Salm à M. Pritz (Dyck, le 1er novembre 1822)</title>
+            <title xml:lang="de">Brief von Constance von Salm an M. Pritz (Dyck, 1. November 1822)</title>
+            <principal>
+               <orgName ref="#DHIP">Deutsches Historisches Institut Paris</orgName>
+            </principal>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Deutsches Historisches Institut Paris</publisher>
+            <authority/>
+            <availability status="restricted" n="CC BY-NC-ND 4.0">
+               <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/"/>
+            </availability>
+            <date when="2025-08-27"/>
+         </publicationStmt>
+         <seriesStmt>
+            <title>La correspondance de Constance de Salm (1767-1845)</title>
+            <respStmt>
+               <resp>Scientific and technical project management</resp>
+               <persName ref="#mareike.konig">
+                  <forename>Mareike</forename>
+                  <surname>König</surname>
+               </persName>
+               <persName ref="#floriane.chiffoleau">
+                  <forename>Floriane</forename>
+                  <surname>Chiffoleau</surname>
+               </persName>
+               <persName ref="#pauline.spychala">
+                  <forename>Pauline</forename>
+                  <surname>Spychala</surname>
+               </persName>
+            </respStmt>
+            <respStmt>
+               <resp>Producing a native digital edition</resp>
+               <persName ref="#prenom.nom">
+                  <forename>Le Thuy Tien</forename>
+                  <surname>Nguyen</surname>
+               </persName>
+            </respStmt>
+         </seriesStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <institution>Archives de la Société des Amis du Vieux Toulon, Archiv Schloss Dyck</institution>
+                        <repository>Fonds Salm de Toulon</repository>
+                    </msIdentifier>
+                </msDesc>
+                <biblStruct>
+                    <analytic>
+                        <title>C11/S84/051</title>
+                        <idno>https://constance-de-salm.de/archiv/#/document/11217</idno>
+                    </analytic>
+                    <monogr>
+                        <title>Die Korrespondenz der Constance de Salm (1767-1845). Inventar des Fonds Salm der Société des Amis du Vieux Toulon et de sa Région und des Bestands Constance de Salm im Archiv Schloss Dyck (Mitgliedsarchiv der Vereinigten Adelsarchive im Rheinland e.V.). Elektronische Edition</title>
+                        <imprint>
+                            <publisher>DHI Paris</publisher>
+                            <pubPlace>Paris</pubPlace>
+                            <date>2021</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+      </fileDesc>
+<encodingDesc>
+            <projectDesc>
+                <p xml:lang="en">This document was encoded as part of the German Historical
+                    Institute's digital edition of Constance de Salm's correspondence.</p>
+                <p xml:lang="fr">L'encodage de ce document a été réalisé dans le cadre de l'édition
+                    numérique de la correspondance de Constance de Salm par l'Institut historique
+                    allemand.</p>
+                <p xml:lang="de">Die Kodierung dieses Dokuments erfolgte im Rahmen des Projekts
+                    Digitales Edition der Korrespondenz von Constance de Salm durch das Deutsches
+                    Historisches Institut.</p>
+            </projectDesc>
+            <editorialDecl>
+                <correction>
+                    <p xml:lang="en">No correction</p>
+                    <p xml:lang="fr">Aucune correction</p>
+                    <p xml:lang="de">Keine Korrektur</p>
+                </correction>
+                <hyphenation eol="all" rend="sh">
+                    <p xml:lang="en">All word breaks at the end of a line (mainly indicated by a
+                        single hyphen) have been retained.</p>
+                    <p xml:lang="fr">Toutes les coupures de mots pour fin de ligne (indiquées
+                        principalement avec un tiret simple) ont été conservées.</p>
+                    <p xml:lang="de">Alle Worttrennungen für Zeilenende (die hauptsächlich mit einem
+                        einfachen Bindestrich gekennzeichnet sind) wurden beibehalten.</p>
+                </hyphenation>
+                <normalization>
+                    <p xml:lang="en">To make the correspondence easier to read, we have chosen to
+                        tag the abbreviations and to resolve them.</p>
+                    <p xml:lang="fr">Pour faciliter la lecture de la correspondance, nous avons
+                        choisi d'indiquer les abréviations par des balises et de les résoudre.</p>
+                    <p xml:lang="de">Um das Lesen der Korrespondenz zu erleichtern, haben wir uns
+                        dafür entschieden, die Abkürzungen mit Tags zu versehen und aufzulösen.</p>
+                </normalization>
+            </editorialDecl>
+        </encodingDesc>
+
+        <profileDesc>
+         <langUsage>
+            <language ident="fr"/>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="https://viaf.org/viaf/121051">Salm, Constance de (CdS)</persName>
+               <placeName ref="https://www.geonames.org/2894637">Dyck (Schloss), Gde. Jüchen</placeName>
+               <date when-iso="1822-11-00"/>
+            </correspAction>
+            <correspAction type="received">
+               <<persName ref="http://viaf.org/viaf/100520554">Ritz, Wilhelm</persName>
+            </correspAction>
+         </correspDesc>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="letter">
+            <opener>
+               <dateline>
+                  <placeName ref="https://www.geonames.org/2894637">Dyck</placeName>, ce <date when-iso="1822-11-00">Ce novembre 1822</date>.
+               </dateline>
+               <salute>Je m’empresse de vous féliciter, Monsieur et surtout Madame Ritz, de l'heureux résultat d’un événement qui fait toujours un peu peur, quoiqu’on en dise. </salute>
+            </opener>
+            <p>Je m’empresse de vous féliciter, Monsieur et surtout Madame <persName ref="http://viaf.org/viaf/100520554">Ritz</persName>
+                <lb/>de l'heureux résultat d’un événement qui fait toujours un peu peur,
+                <lb/>quoi qu’on en dise. Je vois bien ma réputation de prophétesse un peu
+                <lb/>compromise par la Vénus qui vous est arrivée au lieu du Mars
+                <lb/>que je vous avais prédit, mais je m'en console en partageant votre
+                <lb/>joie et en vous conseillant de laisser faire le sort qui en sait
+                <lb/>toujours plus long que nous.
+                <lb/>Mon mari vous offre aussi toutes ses félicitations. Ne nous
+                <lb/>oubliéz pas, je vous prie près de Madame.
+                <lb/>Je vois mes voisins, je travaille, je range, je projette et finale-
+                <lb/>ment je partirai dans le courant de la semaine prochaine où
+                <lb/>je ferai mes adieux à ma petite maison pour toujours et à <placeName ref="https://www.geonames.org/3247449">Aix
+                <lb/>la Chapelle</placeName> pour un ou deux mois.
+                <lb/>Voulez vous bien me rappeler à nos amis communs.
+            </p>
+            <closer>
+            <salute>Mille assurances d'amitié et de la plus sincère estime.</salute>
+               <signed rend="align(right)">Signé : <persName ref="https://viaf.org/viaf/121051">Constance de Salm.</persName></signed>
+            </closer>
+         </div>
+      </body>
+   </text>
+</TEI>

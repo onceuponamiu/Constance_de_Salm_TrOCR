@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="CdS-LettreLandolphe1823">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="en">Letter from Mr Landolphe to the Princesse de Salm (Paris, January 10th 1823)</title>
+            <title xml:lang="fr">Lettre de Mr Landolphe à Mme la Princesse de Salm (Paris, le 10 Janvier 1823)</title>
+            <title xml:lang="de">Brief von Herrn Landolphe an die Prinzessin von Salm (Paris, 10. Januar 1823)</title>
+            <principal>
+               <orgName ref="#DHIP">Deutsches Historisches Institut Paris</orgName>
+            </principal>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Deutsches Historisches Institut Paris</publisher>
+            <authority/>
+            <availability status="restricted" n="CC BY-NC-ND 4.0">
+               <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/"/>
+            </availability>
+            <date when="2025-08-29"/>
+         </publicationStmt>
+         <seriesStmt>
+            <title>La correspondance de Constance de Salm (1767-1845)</title>
+            <respStmt>
+               <resp>Scientific and technical project management</resp>
+               <persName ref="#mareike.konig">
+                  <forename>Mareike</forename>
+                  <surname>König</surname>
+               </persName>
+               <persName ref="#floriane.chiffoleau">
+                  <forename>Floriane</forename>
+                  <surname>Chiffoleau</surname>
+               </persName>
+               <persName ref="#pauline.spychala">
+                  <forename>Pauline</forename>
+                  <surname>Spychala</surname>
+               </persName>
+            </respStmt>
+            <respStmt>
+               <resp>Producing a native digital edition</resp>
+               <persName ref="#prenom.nom">
+                  <forename>Le Thuy Tien</forename>
+                  <surname>Nguyen</surname>
+               </persName>
+            </respStmt>
+         </seriesStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <institution>Archives de la Société des Amis du Vieux Toulon, Archiv Schloss Dyck</institution>
+                        <repository>Fonds Constance de Salm</repository>
+                    </msIdentifier>
+                </msDesc>
+                <biblStruct>
+                    <analytic>
+                        <title>C11/S84/063</title>
+                        <idno>https://constance-de-salm.de/archiv/#/document/11217</idno>
+                    </analytic>
+                    <monogr>
+                        <title>Die Korrespondenz der Constance de Salm (1767-1845). Inventar des Fonds Salm der Société des Amis du Vieux Toulon et de sa Région und des Bestands Constance de Salm im Archiv Schloss Dyck (Mitgliedsarchiv der Vereinigten Adelsarchive im Rheinland e.V.). Elektronische Edition</title>
+                        <imprint>
+                            <publisher>DHI Paris</publisher>
+                            <pubPlace>Paris</pubPlace>
+                            <date>2021</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p xml:lang="en">This document was encoded as part of the German Historical Institute's digital edition of Constance de Salm's correspondence.</p>
+            <p xml:lang="fr">L'encodage de ce document a été réalisé dans le cadre de l'édition numérique de la correspondance de Constance de Salm par l'Institut historique allemand.</p>
+            <p xml:lang="de">Die Kodierung dieses Dokuments erfolgte im Rahmen des Projekts Digitales Edition der Korrespondenz von Constance de Salm durch das Deutsches Historisches Institut.</p>
+         </projectDesc>
+         <editorialDecl>
+            <correction>
+               <p xml:lang="en">No correction</p>
+               <p xml:lang="fr">Aucune correction</p>
+               <p xml:lang="de">Keine Korrektur</p>
+            </correction>
+            <hyphenation eol="all" rend="sh">
+               <p xml:lang="en">All word breaks at the end of a line (mainly indicated by a single hyphen) have been retained.</p>
+               <p xml:lang="fr">Toutes les coupures de mots pour fin de ligne (indiquées principalement avec un tiret simple) ont été conservées.</p>
+               <p xml:lang="de">Alle Worttrennungen für Zeilenende (die hauptsächlich mit einem einfachen Bindestrich gekennzeichnet sind) wurden beibehalten.</p>
+            </hyphenation>
+            <normalization>
+               <p xml:lang="en">To make the correspondence easier to read, we have chosen to tag the abbreviations and to resolve them.</p>
+               <p xml:lang="fr">Pour faciliter la lecture de la correspondance, nous avons choisi d'indiquer les abréviations par des balises et de les résoudre.</p>
+               <p xml:lang="de">Um das Lesen der Korrespondenz zu erleichtern, haben wir uns dafür entschieden, die Abkürzungen mit Tags zu versehen und aufzulösen.</p>
+            </normalization>
+         </editorialDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="fr"/>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="http://viaf.org/viaf/272997146">Landolphe, Jean-François</persName>
+               <placeName ref="https://www.geonames.org/2988507">Paris</placeName>
+               <date when-iso="1823-01-10"/>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="https://viaf.org/viaf/121051">Salm, Constance de (CdS)</persName>
+            </correspAction>
+         </correspDesc>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="letter">
+            <opener>
+               <dateline>
+                  <placeName ref="https://www.geonames.org/2988507">Paris</placeName>, ce <date when-iso="1823-01-10">10 Janvier 1823</date>.</dateline>
+               <salute>Madame la Princesse,</salute>
+            </opener>
+            <p>Je suis on ne peut plus sensible à l'honnête invitation que vous 
+               <lb/>voulez bien me faire d'assister à l'assemblée de famille des fils de feu <rs type="person" ref="BarondeFrancy">Mr
+               <lb/>le Baron de Francy</rs> qui doit se tenir vendredi prochain chez <rs type="person">Mr le 
+               <lb/>juge de paix</rs> <placeName ref="https://www.geonames.org/6619076">Rue de Grenelle St Germain</placeName> No 40.
+               <lb/>Je m'y rendrai avec le plus grand empressement si toutefois les douleurs 
+               <lb/>que j'éprouve aux pieds me le permettent.
+               <lb/><rs type="person" ref="BarondeFrancy">Mon épouse</rs> est très reconnaissante de l'honneur de votre souvenir,
+               <lb/>elle me charge de vous faire agréer ses civilités.
+            </p>
+            <closer>
+               <salute>
+                  Recevez, je vous prie, <rs type="person" ref="https://viaf.org/viaf/121051">Madame la Princesse</rs>, l'assurance des senti-
+                  <lb/>ments de la haute considération avec laquelle j'ai l'honneur d'être &amp;c
+               </salute>
+               <signed rend="align(right)">
+                  <persName>(Signé) Landolphe</persName>
+               </signed>
+            </closer>
+         </div>
+      </body>
+   </text>
+</TEI>
